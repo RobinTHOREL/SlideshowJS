@@ -5,18 +5,29 @@
     <title>Mon javascript</title>
     <meta name="description" content="la description de ma page">
     <link rel="stylesheet" href="css/style.css">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="css/bootstrap/bootstrap.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
-
-<div id="slideshow">
-    <div id="rail">
-        <img src="images/banksy.png" width="300px" alt=""><!--
-    --><img src="images/banksy.png" width="300px" alt=""><!--
-    --><img src="images/banksy.png" width="300px" alt=""><!--
-    --><img src="images/banksy.png" width="300px" alt="">
+<div id="container">
+    <div id="slideshow">
+        <div id="rail">
+            <img src="images/banksy.png" data-desc="" data-title="" width="300px" alt=""><!--
+    --><img src="images/banksy1.png" width="300px" alt=""><!--
+    --><img src="images/banksy2.png" width="300px" alt=""><!--
+    --><img src="images/banksy3.png" width="300px" alt="">
+        </div>
     </div>
+    <!-- Enlever les boutons pour mettre des fleches a la place. Comment gérer le play/pause? -->
+        <!-- <input type="button" id="next" value="Next"> -->
+        <i class="fa fa-arrow-right components" id="next" aria-hidden="true"></i>
+        <!-- <input type="button" id="previous" value="Previous"> -->
+        <i class="fa fa-arrow-left components" id="previous" aria-hidden="true"></i>
+        <!-- <input type="button" id="play" value="Play"> -->
+        <i class="fa fa-play components" id="play" aria-hidden="true"></i>
 </div>
-
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <!--  <script sjsCours="js/injsCoursx.js"></script> -->

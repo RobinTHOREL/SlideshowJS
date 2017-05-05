@@ -6,5 +6,43 @@
     width: 300px;
     padding: 20px;
     overflow: hidden;
+    border: 2px solid lightsteelblue;
+    margin-left: 25%;
+    background: white;
 }
 
+#container {
+    border: 2px solid red;
+    width: 50%;
+    margin-left: 25%;
+    margin-right: 25%;
+    margin-top: 20vh;
+    background: #E0E0E0;
+}
+
+/* Revoir les positions ci-dessous */
+#previous {
+    position: fixed;
+    top: 40vh;
+    left: 0;
+}
+
+#next {
+    position: absolute;
+    top: 40vh;
+    right: 0;
+}
+
+#play {
+    width: 20%;
+    margin-left: 40%;
+    margin-right: 40%;
+}
+
+i.components {
+    font-size: 4em;
+}
+
+i.components:hover {
+    cursor: pointer;
+}
