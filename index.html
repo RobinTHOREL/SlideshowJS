@@ -10,22 +10,19 @@
     <link rel="stylesheet" href="css/bootstrap/bootstrap.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
-<body>
+<body onload="getImages()">
 <div id="container">
     <div id="slideshow">
         <div id="rail">
-            <img src="images/banksy.png" data-desc="" data-title="" width="300px" alt=""><!--
-    --><img src="images/banksy1.png" width="300px" alt=""><!--
-    --><img src="images/banksy2.png" width="300px" alt=""><!--
-    --><img src="images/banksy3.png" width="300px" alt="">
+        <!-- Les images sont placées ici par le JS. Il faudrais les remplacer par des divs pour le responsive --
+            <div id="un"></div>
+            <div id="deux"></div>
+            <div id="trois"></div>
+            -->
         </div>
     </div>
-    <!-- Enlever les boutons pour mettre des fleches a la place. Comment gérer le play/pause? -->
-        <!-- <input type="button" id="next" value="Next"> -->
         <i class="fa fa-arrow-right components" id="next" aria-hidden="true"></i>
-        <!-- <input type="button" id="previous" value="Previous"> -->
         <i class="fa fa-arrow-left components" id="previous" aria-hidden="true"></i>
-        <!-- <input type="button" id="play" value="Play"> -->
         <i class="fa fa-play components" id="play" aria-hidden="true"></i>
 </div>
 

@@ -2,7 +2,7 @@
  * Created by Kush on 13/04/2017.
  */
 
-var timeTransition = 4000;
+var timeTransition = 2000;
 var playDefault = false;
 var timerSlide;
 
@@ -46,21 +46,21 @@ $("#play").click(function () {
 });
 
 function nextImage() {
-    $('#rail').animate({"margin-left":"-300px"}, 2000, changeFirstImg);
+    $('#rail').animate({"margin-left":"-65vw"}, 2000, changeFirstImg);
 }
 
 function previousImage() {
-    $('#rail').animate({"margin-left":"300px"}, 2000, changeImgPrevious);
+    $('#rail').animate({"margin-left":"65vw"}, 2000, changeImgPrevious);
 }
 
 function changeFirstImg() {
     $('#rail').css('margin-left', '0px');
-    $('#rail img:last').after($('#rail img:first'))
+    $('#rail img:last').after($('#rail img:first'));
 }
 
 function changeImgPrevious() {
+    $('#rail img:first').before($('#rail img:last'));
     $('#rail').css('margin-left', '0px');
-    $('#rail img:first').before($('#rail img:last'))
 }
 
 function playPause() {
@@ -84,14 +84,20 @@ function playPause() {
     Récupération des données avec AJAX
  */
 
-$("#more_com").click(function(){
+function getImages() {
+    var url = "https://www.skrzypczyk.fr/slideshow.php";
+    $.getJSON(url, {
+        format: "json"
+    }).done((data) => { $.each(data, (key, item) => {
+        //$("<div>").attr({"id": key, "alt": item.desc, "data-title": item.title}).appendTo("#rail");
+        //resize(key);
+        //$("<img>").attr({"id": key,"src": item.url, "alt": item.desc, "data-title": item.title}).appendTo("#rail");
+})
+})
+}
 
-    $.ajax({
-        url : 'https://www.skrzypczyk.fr/slideshow.php',
-        type : 'GET',
-        dataType : 'json', // On désire recevoir du JSON
-        success : function(code_json, statut){ // code_html contient le HTML renvoyé
-        }
-    });
-
-});
+function resize (key) {
+     var elem = document.getElementById(key);
+     elem.style.backgroundSize("cover");
+     elem.style.backgroundImage(item.url);
+}
