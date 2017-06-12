@@ -91,13 +91,52 @@ function getImages() {
     }).done((data) => { $.each(data, (key, item) => {
         //$("<div>").attr({"id": key, "alt": item.desc, "data-title": item.title}).appendTo("#rail");
         //resize(key);
-        //$("<img>").attr({"id": key,"src": item.url, "alt": item.desc, "data-title": item.title}).appendTo("#rail");
+        $("<img>").attr({"id": key,"src": item.url, "alt": item.desc, "data-title": item.title, "class": "image"}).appendTo("#rail");
 })
 })
 }
 
-function resize (key) {
-     var elem = document.getElementById(key);
-     elem.style.backgroundSize("cover");
-     elem.style.backgroundImage(item.url);
+function resize(){
+
+    var $image = $('img.image');
+    var image_width = $image.width();
+    var image_height = $image.height();
+
+    var over = image_width / image_height;
+    var under = image_height / image_width;
+
+    var body_width = $(window).width();
+    var body_height = $(window).height();
+
+    if (body_width / body_height >= over) {
+        $image.css({
+            'width': body_width + 'px',
+            'height': Math.ceil(under * body_width) + 'px',
+            'left': '0px',
+            'top': Math.abs((under * body_width) - body_height) / -2 + 'px'
+        });
+        alert("resize");
+    }
+
+    else {
+        $image.css({
+            'width': Math.ceil(over * body_height) + 'px',
+            'height': body_height + 'px',
+            'top': '0px',
+            'left': Math.abs((over * body_height) - body_width) / -2 + 'px'
+        });
+        alert("resize");
+    }
 }
+
+$(document).ready(function(){
+
+    // Au chargement initial
+    resize();
+
+    // En cas de redimensionnement de la fenêtre
+    $(window).resize(function(){
+        resize();
+    });
+
+});
