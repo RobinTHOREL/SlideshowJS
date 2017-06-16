@@ -1,50 +1,59 @@
+html {
+    top: 0;
+    left: 0;
+}
+
 
 #rail {
-    width: 3000px;
-    /*border: 2px solid yellow;*/
+    width: 4000px; /* Change to n*image.width() for full container */
+    border: 2px solid yellow;
 }
 #slideshow {
-    width: 2580px;
-    height: auto;
-    /*overflow: hidden;*/
+    width: 600px; /* Change to 100% for full container */
+    height: auto; /* Change to 100% for full container */
+    overflow: hidden;
+    border:2px solid red;
 }
+
+div#legend {
+    background-color: dimgrey;
+    opacity: 0.4;
+    width: 300px;
+    height: auto;
+    text-align: center;
+    margin-left: 25%;
+    margin-top: 25%;
+}
+
+h1 {
+    background-color: rosybrown;
+    padding: 7px;
+}
+
+h3 {
+    background-color: rosybrown;
+    padding: 5px;
+    opacity: 0.8;
+}
+
 #container {
-    width: 65vw;
-    height: 95vh;
-    margin-left: 9vw;
-
-
+    width: 99vw;
+    height: 100vh;
+    margin-left: 10px;
     left: 0px;
     bottom: 0px;
+    border: 2px solid green;
 }
 
-#rail img {
-    width: 82vw;
-    max-width: auto;
-    overflow: hidden;
+div .image {
+    background: no-repeat center;
+    background-size: cover;
+    height: 300px; /* Change to 100% for full container */
+    width: 600px; /* Change to 100% for full container */
     float: left;
-    display: block;
-
-
-    /* -webkit-background-size: cover; /* pour anciens Chrome et Safari /
-    background-size: cover; /* version standardisée
-
-    Faire des divs plutôt qu'injecter des <img> pour img responsive? --> OUI
-
+    /*
+        Faire des divs plutôt qu'injecter des <img> pour img responsive? --> OUI
     */
-}
-
-/* Ci-dessous test pour passer des DIV plutot que des IMG (reponsive) --> Non concluant */
-div #un {
-    margin:0;
-    padding:0;
-    background: url(https://static.pexels.com/photos/292600/pexels-photo-292600.jpeg) no-repeat center fixed;
-    -webkit-background-size: cover; /* pour anciens Chrome et Safari */
-    background-size: cover; /* version standardisée */
-    width: auto;
-
-
-
 }
 
 /* Revoir les positions ci-dessous */

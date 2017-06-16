@@ -5,6 +5,8 @@
 var timeTransition = 2000;
 var playDefault = false;
 var timerSlide;
+var div_rail = $("#rail");
+var img_width;
 
 /* Mode pause au hover (+ opacity 0.7 sur l'image pour indiquer le mode pause a l'user)
 du slideshow s'il etait en play. La lecture reprend en sortnt du hover */
@@ -46,21 +48,23 @@ $("#play").click(function () {
 });
 
 function nextImage() {
-    $('#rail').animate({"margin-left":"-65vw"}, 2000, changeFirstImg);
+    img_width = $('#image1').width;// Comment récupérer la taille de l'image pour slide responsive?
+    $('#rail').animate({"margin-left":"-600px"}, 2000, changeFirstImg);
 }
 
 function previousImage() {
-    $('#rail').animate({"margin-left":"65vw"}, 2000, changeImgPrevious);
+    img_width = $('#image1').width;//Comment récupérer la taille de l'image pour slide responsive?
+    $('#rail').animate({"margin-left":"" + img_width + "px"}, 2000, changeImgPrevious);
 }
 
 function changeFirstImg() {
     $('#rail').css('margin-left', '0px');
-    $('#rail img:last').after($('#rail img:first'));
+    $('#rail div.image:last').after($('#rail div.image:first'))
 }
 
 function changeImgPrevious() {
-    $('#rail img:first').before($('#rail img:last'));
     $('#rail').css('margin-left', '0px');
+    $('#rail div.image:first').before($('#rail div.image:last'))
 }
 
 function playPause() {
@@ -86,54 +90,22 @@ function playPause() {
 
 function getImages() {
     var url = "https://www.skrzypczyk.fr/slideshow.php";
-    $.getJSON(url, {
-        format: "json"
-    }).done((data) => { $.each(data, (key, item) => {
-        //$("<div>").attr({"id": key, "alt": item.desc, "data-title": item.title}).appendTo("#rail");
-        //resize(key);
-        $("<img>").attr({"id": key,"src": item.url, "alt": item.desc, "data-title": item.title, "class": "image"}).appendTo("#rail");
-        })
-    resize();
-    })
-}
+    var i = 0;
 
-function resize(){
-
-        $('img.image').each(function() {
-        var maxWidth = 1300; // Max width for the image
-        var maxHeight = 900;    // Max height for the image
-      //  var ratio = 0;  // Used for aspect ratio
-        var width = $(this).width();    // Current image width
-        var height = $(this).height();  // Current image height
-
-        // Check if the current width is larger than the max
-        //if(width > maxWidth){
-            ratio = maxWidth / width;   // get ratio for scaling image
-            $(this).css("width", maxWidth); // Set new width
-           // $(this).css("height", height * ratio);  // Scale height based on ratio
-           // height = height * ratio;    // Reset height to match scaled image
-            //width = width * ratio;    // Reset width to match scaled image
-       // }
-
-        // Check if current height is larger than max
-        //if(height > maxHeight){
-            ratio = maxHeight / height; // get ratio for scaling image
-            $(this).css("height", maxHeight);   // Set new height
-           // $(this).css("width", width * ratio);    // Scale width based on ratio
-           // width = width * ratio;    // Reset width to match scaled image
-           // height = height * ratio;    // Reset height to match scaled image
-       // }
+    $.getJSON(url,
+        function(json){
+             $.each( json, function( key, val ) {
+                 i++;
+                 $(div_rail).append("<div class='image' id='img" + i +"' style='background-image: url(" + val.url + ");' > " +
+                     "<div id='legend'> <h1>" + val.title + "</h1><h3>"+ val.desc +"</h3></div></div>");
+        });
     });
+
 }
 
 $(document).ready(function(){
 
     // Au chargement initial
-
-
-    // En cas de redimensionnement de la fenêtre
-    $(window).resize(function(){
-        resize();
-    });
+    getImages();
 
 });
