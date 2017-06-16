@@ -1,6 +1,6 @@
 
 #rail {
-    width: 600px;
+    width: 3000px;
     /*border: 2px solid yellow;*/
 }
 #slideshow {
@@ -22,6 +22,8 @@
     width: 82vw;
     max-width: auto;
     overflow: hidden;
+    float: left;
+    display: block;
 
 
     /* -webkit-background-size: cover; /* pour anciens Chrome et Safari /
@@ -40,6 +42,8 @@ div #un {
     -webkit-background-size: cover; /* pour anciens Chrome et Safari */
     background-size: cover; /* version standardisée */
     width: auto;
+
+
 
 }
 
