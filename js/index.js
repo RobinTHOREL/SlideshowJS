@@ -92,47 +92,44 @@ function getImages() {
         //$("<div>").attr({"id": key, "alt": item.desc, "data-title": item.title}).appendTo("#rail");
         //resize(key);
         $("<img>").attr({"id": key,"src": item.url, "alt": item.desc, "data-title": item.title, "class": "image"}).appendTo("#rail");
-})
-})
+        })
+    resize();
+    })
 }
 
 function resize(){
 
-    var $image = $('img.image');
-    var image_width = $image.width();
-    var image_height = $image.height();
+        $('img.image').each(function() {
+        var maxWidth = 1300; // Max width for the image
+        var maxHeight = 900;    // Max height for the image
+        var ratio = 10;  // Used for aspect ratio
+        var width = $(this).width();    // Current image width
+        var height = $(this).height();  // Current image height
 
-    var over = image_width / image_height;
-    var under = image_height / image_width;
+        // Check if the current width is larger than the max
+        if(width > maxWidth){
+            ratio = maxWidth / width;   // get ratio for scaling image
+            $(this).css("width", maxWidth); // Set new width
+            $(this).css("height", height * ratio);  // Scale height based on ratio
+            height = height * ratio;    // Reset height to match scaled image
+            width = width * ratio;    // Reset width to match scaled image
+        }
 
-    var body_width = $(window).width();
-    var body_height = $(window).height();
-
-    if (body_width / body_height >= over) {
-        $image.css({
-            'width': body_width + 'px',
-            'height': Math.ceil(under * body_width) + 'px',
-            'left': '0px',
-            'top': Math.abs((under * body_width) - body_height) / -2 + 'px'
-        });
-        alert("resize");
-    }
-
-    else {
-        $image.css({
-            'width': Math.ceil(over * body_height) + 'px',
-            'height': body_height + 'px',
-            'top': '0px',
-            'left': Math.abs((over * body_height) - body_width) / -2 + 'px'
-        });
-        alert("resize");
-    }
+        // Check if current height is larger than max
+        if(height > maxHeight){
+            ratio = maxHeight / height; // get ratio for scaling image
+            $(this).css("height", maxHeight);   // Set new height
+            $(this).css("width", width * ratio);    // Scale width based on ratio
+            width = width * ratio;    // Reset width to match scaled image
+            height = height * ratio;    // Reset height to match scaled image
+        }
+    });
 }
 
 $(document).ready(function(){
 
     // Au chargement initial
-    resize();
+
 
     // En cas de redimensionnement de la fenêtre
     $(window).resize(function(){
