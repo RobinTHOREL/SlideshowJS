@@ -48,12 +48,10 @@ $("#play").click(function () {
 });
 
 function nextImage() {
-    img_width = $('#image1').width;// Comment récupérer la taille de l'image pour slide responsive?
-    $('#rail').animate({"margin-left":"-600px"}, 2000, changeFirstImg);
+    $('#rail').animate({"margin-left":"-" + img_width + "px"}, 2000, changeFirstImg);
 }
 
 function previousImage() {
-    img_width = $('#image1').width;//Comment récupérer la taille de l'image pour slide responsive?
     $('#rail').animate({"margin-left":"" + img_width + "px"}, 2000, changeImgPrevious);
 }
 
@@ -63,8 +61,11 @@ function changeFirstImg() {
 }
 
 function changeImgPrevious() {
+    /*$('#rail').css('margin-left', '0px');
+    $('#rail div.image:first').before($('#rail div.image:last'))*/
+    
+    $('#rail div.image:last').insertBefore($('#rail div.image:first'));
     $('#rail').css('margin-left', '0px');
-    $('#rail div.image:first').before($('#rail div.image:last'))
 }
 
 function playPause() {
@@ -107,5 +108,17 @@ $(document).ready(function(){
 
     // Au chargement initial
     getImages();
+    img_width = $(window).width(); 
+    console.log("Largeur de la fenetre : " + img_width);
+    console.log("Page chargée");
 
+});
+
+$( window ).resize(function() {
+  
+    //Au redimensionnement de la fenetre 
+    img_width = $(window).width(); 
+    console.log("Fenetre redimensionnée");
+    console.log("Largeur de la fenetre : " + img_width);
+    
 });

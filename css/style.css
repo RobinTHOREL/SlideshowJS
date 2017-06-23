@@ -3,26 +3,29 @@ html {
     left: 0;
 }
 
+body {
+    background-color: black;
+}
 
 #rail {
-    width: 4000px; /* Change to n*image.width() for full container */
-    border: 2px solid yellow;
+    width: 7000px; /* Change to n*image.width() for full container */
+    /* border: 2px solid yellow; */
 }
 #slideshow {
-    width: 600px; /* Change to 100% for full container */
-    height: auto; /* Change to 100% for full container */
+    width: 100%; /* Change to 100% for full container */
+    height: 100%; /* Change to 100% for full container */
     overflow: hidden;
-    border:2px solid red;
+    /* border:2px solid red; */
 }
 
 div#legend {
     background-color: dimgrey;
-    opacity: 0.4;
-    width: 300px;
+    opacity: 0.6;
+    width: 33.33%;
     height: auto;
     text-align: center;
-    margin-left: 25%;
-    margin-top: 25%;
+    margin-left: 3%;
+    margin-top: 84vh;
 }
 
 h1 {
@@ -37,23 +40,19 @@ h3 {
 }
 
 #container {
-    width: 99vw;
+    width: 100vw;
     height: 100vh;
-    margin-left: 10px;
     left: 0px;
     bottom: 0px;
-    border: 2px solid green;
+    /* border: 2px solid green; */
 }
 
 div .image {
     background: no-repeat center;
     background-size: cover;
-    height: 300px; /* Change to 100% for full container */
-    width: 600px; /* Change to 100% for full container */
+    height: 100vh; /* Change to 100% for full container */
+    width: 100vw; /* Change to 100% for full container */
     float: left;
-    /*
-        Faire des divs plutôt qu'injecter des <img> pour img responsive? --> OUI
-    */
 }
 
 /* Revoir les positions ci-dessous */
@@ -77,6 +76,7 @@ div .image {
 
 i.components {
     font-size: 4em;
+    color: whitesmoke;
 }
 
 i.components:hover {
