@@ -8,6 +8,7 @@ var timerSlide;
 var div_rail = $("#rail");
 var img_width;
 
+
 /* Mode pause au hover (+ opacity 0.7 sur l'image pour indiquer le mode pause a l'user)
 du slideshow s'il etait en play. La lecture reprend en sortnt du hover */
 $("#slideshow").mouseenter(function () {
@@ -34,7 +35,7 @@ $("#next").click(function () {
 
 /* Changement d'image "previous" et arrete la lecture si elle etait en pause */
 $("#previous").click(function () {
-    previousImage();
+        previousImage();
     if(playDefault) {
         playDefault = false;
         clearInterval(timerSlide);
@@ -47,25 +48,25 @@ $("#play").click(function () {
     playPause();
 });
 
+
 function nextImage() {
-    $('#rail').animate({"margin-left":"-" + img_width + "px"}, 2000, changeFirstImg);
+    $('#rail').animate({"margin-left":"-" + img_width + "px"}, timeTransition, changeFirstImg);
 }
 
 function previousImage() {
-    $('#rail').animate({"margin-left":"" + img_width + "px"}, 2000, changeImgPrevious);
+        changeImgPrevious(); // appel maintenant pour charger img avant de se deplacer vers l'arriere , fixed bug marge blanche.
+        $('#rail').animate({"margin-left": "0px"},timeTransition);
 }
 
 function changeFirstImg() {
     $('#rail').css('margin-left', '0px');
-    $('#rail div.image:last').after($('#rail div.image:first'))
+    $('#rail div.image:last-child').after($('#rail div.image:first-child'))
 }
 
 function changeImgPrevious() {
-    /*$('#rail').css('margin-left', '0px');
-    $('#rail div.image:first').before($('#rail div.image:last'))*/
-    
-    $('#rail div.image:last').insertBefore($('#rail div.image:first'));
-    $('#rail').css('margin-left', '0px');
+    $('#rail div.image:last-child').insertBefore($('#rail div.image:first-child'));
+    $('#rail').css('margin-left', "-" + img_width + "px");
+
 }
 
 function playPause() {
