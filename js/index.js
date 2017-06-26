@@ -35,11 +35,12 @@ $("#next").click(function () {
 
 /* Changement d'image "previous" et arrete la lecture si elle etait en pause */
 $("#previous").click(function () {
-        previousImage();
+    previousImage();
     if(playDefault) {
         playDefault = false;
         clearInterval(timerSlide);
         $("#play").prop('class', 'fa fa-play components');
+
     }
 });
 
@@ -48,14 +49,13 @@ $("#play").click(function () {
     playPause();
 });
 
-
 function nextImage() {
     $('#rail').animate({"margin-left":"-" + img_width + "px"}, timeTransition, changeFirstImg);
 }
 
 function previousImage() {
-        changeImgPrevious(); // appel maintenant pour charger img avant de se deplacer vers l'arriere , fixed bug marge blanche.
-        $('#rail').animate({"margin-left": "0px"},timeTransition);
+        //changeImgPrevious(); // appel maintenant pour charger img avant de se deplacer vers l'arriere , fixed bug marge blanche.
+        $('#rail').animate({"margin-left":"0px"},timeTransition,changeImgPrevious);
 }
 
 function changeFirstImg() {
@@ -66,8 +66,7 @@ function changeFirstImg() {
 function changeImgPrevious() {
     $('#rail div.image:last-child').insertBefore($('#rail div.image:first-child'));
     $('#rail').css('margin-left', "-" + img_width + "px");
-
-}
+};
 
 function playPause() {
     if(playDefault) {
@@ -110,6 +109,7 @@ $(document).ready(function(){
     // Au chargement initial
     getImages();
     img_width = $(window).width(); 
+
     console.log("Largeur de la fenetre : " + img_width);
     console.log("Page chargée");
 
@@ -118,7 +118,8 @@ $(document).ready(function(){
 $( window ).resize(function() {
   
     //Au redimensionnement de la fenetre 
-    img_width = $(window).width(); 
+    img_width = $(window).width();
+    $('#rail').css('margin-left', '0px');
     console.log("Fenetre redimensionnée");
     console.log("Largeur de la fenetre : " + img_width);
     
