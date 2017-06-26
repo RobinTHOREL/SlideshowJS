@@ -55,7 +55,7 @@ function nextImage() {
 
 function previousImage() {
         //changeImgPrevious(); // appel maintenant pour charger img avant de se deplacer vers l'arriere , fixed bug marge blanche.
-        $('#rail').animate({"margin-left":"0px"},timeTransition,changeImgPrevious);
+        $('#rail').animate({"margin-left":"0px"},timeTransition,changeImgPrevious);//sans changeImgPrevious mettre le mouvement la
 }
 
 function changeFirstImg() {
@@ -65,7 +65,7 @@ function changeFirstImg() {
 
 function changeImgPrevious() {
     $('#rail div.image:last-child').insertBefore($('#rail div.image:first-child'));
-    $('#rail').css('margin-left', "-" + img_width + "px");
+    $('#rail').css('margin-left', "-" + img_width + "px"); //enlever le mouvement
 };
 
 function playPause() {
