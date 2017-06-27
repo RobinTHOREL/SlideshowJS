@@ -43,6 +43,7 @@ $("#previous").click(function () {
         clearInterval(timerSlide);
         $("#play").prop('class', 'fa fa-play components');
 
+
     }
 });
 
@@ -61,6 +62,23 @@ function previousDisable (isDisabled) {
 
 }///rob utile pour next, fixed bug next puis prev rapidement
 // , empeche d'avancer vite et sur play/pause
+
+
+$("#pastilleun").click(function () {
+
+
+    if($('#img1')){
+
+
+    }else{
+        $('#rail').animate({"margin-left": "-" + img_width + "px"}, timeTransition, changeFirstImg);
+
+    }
+
+});
+
+
+
 
 /* Mode play/pause */
 $("#play").click(function () {
