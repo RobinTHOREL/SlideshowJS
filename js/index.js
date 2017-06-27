@@ -46,19 +46,21 @@ $("#previous").click(function () {
     }
 });
 
-function previousDisable (status) {
+function previousDisable (isDisabled) {
 
-    if (status) {
-
+    if (isDisabled) {
         $("#previous").addClass('disabled'); //permet de setter disabled au button prev
-    }
+        $("#next").addClass('disabled'); //permet de setter disabled au button prev
 
+    }
     else {
-
         $("#previous").removeClass('disabled');//permet de unsetter disabled au button prev
+        $("#next").removeClass('disabled'); //permet de setter disabled au button prev
+
     }
 
-}///rob inutile pour next , empeche d'avancer vite et sur play/pause
+}///rob utile pour next, fixed bug next puis prev rapidement
+// , empeche d'avancer vite et sur play/pause
 
 /* Mode play/pause */
 $("#play").click(function () {
@@ -66,15 +68,16 @@ $("#play").click(function () {
 });
 
 function nextImage() {
-    $('#rail').animate({"margin-left":"-" + img_width + "px"}, timeTransition, changeFirstImg);
+    if (!$("#next").hasClass('disabled')) {
+        previousDisable(true);
+        $('#rail').animate({"margin-left": "-" + img_width + "px"}, timeTransition, changeFirstImg);
+
+    }
 }
 
-
-$("#previous").click(previousImage);
-
 function previousImage() {
-
-    if (!$("#previous").hasClass('disabled')) {//permet de test si le status est disabled sur le button prev
+   // !$("#next").hasClass('disabled')
+    if (!$("#previous").hasClass('disabled')) {//permet de test si le status est disabled sur le button prev, si il est pas disable on passe
         previousDisable(true);// le disable
         //previous.prop('disabled', false);
         changeImgPrevious(); // appel maintenant pour charger img avant de se deplacer vers l'arriere , fixed bug marge blanche.
@@ -85,7 +88,8 @@ function previousImage() {
 
 function changeFirstImg() {
     $('#rail').css('margin-left', '0px');
-    $('#rail div.image:last-child').after($('#rail div.image:first-child'))
+    $('#rail div.image:last-child').after($('#rail div.image:first-child'));
+    previousDisable(false);
 }
 
 function changeImgPrevious() {
