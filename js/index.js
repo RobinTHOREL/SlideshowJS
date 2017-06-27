@@ -9,6 +9,8 @@ var div_rail = $("#rail");
 var img_width;
 
 
+
+
 /* Mode pause au hover (+ opacity 0.7 sur l'image pour indiquer le mode pause a l'user)
 du slideshow s'il etait en play. La lecture reprend en sortnt du hover */
 $("#slideshow").mouseenter(function () {
@@ -44,6 +46,20 @@ $("#previous").click(function () {
     }
 });
 
+function previousDisable (status) {
+
+    if (status) {
+
+        $("#previous").addClass('disabled'); //permet de setter disabled au button prev
+    }
+
+    else {
+
+        $("#previous").removeClass('disabled');//permet de unsetter disabled au button prev
+    }
+
+}///rob inutile pour next , empeche d'avancer vite et sur play/pause
+
 /* Mode play/pause */
 $("#play").click(function () {
     playPause();
@@ -53,9 +69,18 @@ function nextImage() {
     $('#rail').animate({"margin-left":"-" + img_width + "px"}, timeTransition, changeFirstImg);
 }
 
+
+$("#previous").click(previousImage);
+
 function previousImage() {
-        //changeImgPrevious(); // appel maintenant pour charger img avant de se deplacer vers l'arriere , fixed bug marge blanche.
-        $('#rail').animate({"margin-left":"0px"},timeTransition,changeImgPrevious);//sans changeImgPrevious mettre le mouvement la
+
+    if (!$("#previous").hasClass('disabled')) {//permet de test si le status est disabled sur le button prev
+        previousDisable(true);// le disable
+        //previous.prop('disabled', false);
+        changeImgPrevious(); // appel maintenant pour charger img avant de se deplacer vers l'arriere , fixed bug marge blanche.
+        $('#rail').animate({"margin-left": "0px"}, {duration: timeTransition, complete: function(){ previousDisable(false)}});//sans changeImgPrevious mettre le mouvement la
+        //permet de enable le button quand l'anime est terminé
+    }
 }
 
 function changeFirstImg() {
@@ -64,8 +89,10 @@ function changeFirstImg() {
 }
 
 function changeImgPrevious() {
+    $('#rail').css('margin-left',"-" + img_width + "px");
     $('#rail div.image:last-child').insertBefore($('#rail div.image:first-child'));
-    $('#rail').css('margin-left', "-" + img_width + "px"); //enlever le mouvement
+   //previous.prop('disabled', false);
+    //enlever le mouvement
 };
 
 function playPause() {
