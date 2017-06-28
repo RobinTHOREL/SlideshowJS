@@ -118,9 +118,16 @@ i.components {
     color: whitesmoke;
 }
 
+a {
+    text-decoration: none;
+}
+
 i.components:hover {
     cursor: pointer;
 }
 
+a.active {
+    color: rgb(35,82,124);
+}
 
 
