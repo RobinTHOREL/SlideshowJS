@@ -3,10 +3,12 @@
  */
 
 var timeTransition = 2000;
+var timeTransitionTitle=3000;
 var playDefault = false;
 var timerSlide;
 var div_rail = $("#rail");
 var img_width;
+var cpt = 0;
 
 /* Mode pause au hover (+ opacity 0.7 sur l'image pour indiquer le mode pause a l'user)
 du slideshow s'il etait en play. La lecture reprend en sortnt du hover */
@@ -24,12 +26,14 @@ $("#slideshow").mouseenter(function () {
 
 /* Changement d'image "next" et arrete la lecture si elle etait en play */
 $("#next").click(function () {
+    //$("#legend").animate({"margin-left": "-"+ img_width/10000 +"px"}, timeTransition);
     nextImage();
     if (playDefault) {
         playDefault = false;
         clearInterval(timerSlide);
         $("#play").prop('class', 'fa fa-play components');
     }
+
 });
 /* Changement d'image "previous" et arrete la lecture si elle etait en pause */
 $("#previous").click(function () {
@@ -39,17 +43,22 @@ $("#previous").click(function () {
         clearInterval(timerSlide);
         $("#play").prop('class', 'fa fa-play components');
     }
+    $("#legend").animate({"margin-left": "-"+ img_width/10000 +"px"}, timeTransition);
 });
 
 function previousDisable(isDisabled) {
 
     if (isDisabled) {
         $("#previous").addClass('disabled'); //permet de setter disabled au button prev
-        $("#next").addClass('disabled'); //permet de setter disabled au button prev
+        $("#next").addClass('disabled'); //permet de setter disabled au button next
+
     } else {
         $("#previous").removeClass('disabled'); //permet de unsetter disabled au button prev
-        $("#next").removeClass('disabled'); //permet de setter disabled au button prev
+        $("#next").removeClass('disabled'); //permet de setter disabled au button next
+
     }
+
+    //bug disabled pastilles quand on fait une autre action next, prev ou play/pause
 
 } ///rob utile pour next, fixed bug next puis prev rapidement
 // , empeche d'avancer vite et sur play/pause
@@ -57,20 +66,111 @@ function previousDisable(isDisabled) {
 
 /* Mode play/pause */
 $("#play").click(function () {
+   // $("#legend").animate({"margin-left": "-"+ img_width/10000 +"px"}, timeTransition);
     playPause();
+
+   // $("#legend").animate({"margin-left": "-"+ img_width/10000 +"px"}, timeTransition);
 });
 
 function nextImage() {
+
+    $("#legend").animate({"margin-left": "-"+ img_width/10000 +"px"}, timeTransition);
     if (!$("#next").hasClass('disabled')) {
         previousDisable(true);
+
+    if(cpt==0){
+
+    $("#legend1").addClass('active');
+
+    }
         $(".active").each(function () {
-            changePastilleActiveFromMove('next', this.id);
+            changeTitleActiveFromMove('next', this.id);
         });
+
         $('#rail').animate({
             "margin-left": "-" + img_width + "px"
         }, timeTransition, changeFirstImg);
+
+        $(".active").each(function () {
+            changePastilleActiveFromMove('next', this.id);
+cpt++;
+        }
+        );
     }
 }
+
+ //A voir faire varier ou nn la taille de la police
+// $("h1").animate({"margin-left": "-" + img_width  + "px"}, timeTransition);
+ //$("h3").animate({"margin-left": "-" + img_width + "px"}, timeTransition)*/
+
+
+function changeTitleActiveFromMove(move, id) {
+
+   // alert('move : ' + move + ', id : ' + id );
+    //$(".active").prop('class', '');
+    switch(id){
+        case 'legend1':
+            if(move == 'next') {
+                $("div.animetitle2").animate({"margin-left": "-" + img_width / 10000 + "px"}, timeTransitionTitle);
+                //$("div.animtitle3").animate({"margin-left": img_width + "px"}, timeTransition);
+                $("#legend1").removeClass('active');
+                $("#legend2").prop('class', 'animetitle2');
+                $(".active").prop('class', 'animetitle2');
+                $("#legend2").addClass('active');
+
+
+            } else if(move == 'previous') {
+
+            }
+            break;
+        case 'legend2':
+            if(move == 'next') {
+                $("div.animetitle3").animate({"margin-left": "-" + img_width / 10000 + "px"}, timeTransitionTitle);
+                //$("div.animtitle4").animate({"margin-left": img_width + "px"}, timeTransition);
+                //changeTitleActiveFromMove();
+                $("#legend2").removeClass('active');
+                $("#legend3").prop('class', 'animetitle3');
+                $(".active").prop('class', 'animetitle3');
+                $("#legend3").addClass('active');
+
+
+            } else if(move == 'previous') {
+
+            }
+            break;
+        case 'legend3':
+            if(move == 'next') {
+                $("div.animetitle4").animate({"margin-left": "-" + img_width / 10000 + "px"}, timeTransitionTitle);
+                //$("div.animtitle2").animate({"margin-left": "-" + img_width / 10000 + "px"}, timeTransition);
+               // changeTitleActiveFromMove();
+               $("#legend3").removeClass('active');
+               $("#legend4").prop('class','animetitle4');
+                $(".active").prop('class', 'animetitle4');
+               $("#legend4").addClass('active');
+
+            } else if(move == 'previous') {
+            }
+                break;
+
+        case 'legend4':
+            if(move == 'next') {
+                $("div.animetitle1").animate({"margin-left": "-" + img_width / 10000 + "px"}, timeTransitionTitle);
+               $("#legend4").removeClass('active');
+                $("#legend1").prop('class', 'animetitle1');
+                $(".active").prop('class', 'animetitle1');
+                $("#legend1").addClass('active');
+
+
+                // changeTitleActiveFromMove();
+            } else if(move == 'previous') {
+
+            }
+            break;
+        default:
+            break;
+    }
+}
+
 
 function previousImage() {
     // !$("#next").hasClass('disabled')
@@ -107,18 +207,22 @@ function changeImgPrevious() {
 };
 
 function playPause() {
+    $("#legend").animate({"margin-left": "-"+ img_width/10000 +"px"}, timeTransition);
     if (playDefault) {
         playDefault = false;
         clearInterval(timerSlide);
         /* console.log("play = false"); */
         //Mettre le bouton en "play"
         $("#play").prop('class', 'fa fa-play components');
+       // $("#legend").animate({"margin-left": "-"+ img_width/10000 +"px"}, timeTransition);
+
     } else {
         playDefault = true;
         timerSlide = setInterval(nextImage, timeTransition);
         /* console.log("play = true"); */
         //Mettre le bouton en "pause"
         $("#play").prop('class', 'fa fa-pause components');
+       // $("#legend").animate({"margin-left": "-"+ img_width/10000 +"px"}, timeTransition);
     }
 }
 
@@ -127,7 +231,7 @@ function changePastilleActive() {
 }
 
 function changePastilleActiveFromMove(move, id) {
-    //alert('move : ' + move + ', id : ' + id);
+   // alert('move : ' + move + ', id : ' + id);
     switch(id){
         case 'pastilleun':
             if(move == 'next') {
@@ -184,6 +288,7 @@ $("a").click(function () {
     changePastilleActive();
 });
 
+
 /*
     Récupération des données avec AJAX
  */
@@ -197,19 +302,22 @@ function getImages() {
             $.each(json, function (key, val) {
                 i++;
                 $(div_rail).append("<div class='image' id='img" + i + "' style='background-image: url(" + val.url + ");' > " +
-                    "<div id='legend'> <h1>" + val.title + "</h1><h3>" + val.desc + "</h3></div></div>");
+                    "<div id='legend" + i + "' class='animetitle" + i + "'> <h1>" + val.title + "</h1><h3>" + val.desc + "</h3></div></div>");
+
             });
         });
 }
+
 
 $(document).ready(function () {
 
     // Au chargement initial
     getImages();
     img_width = $(window).width();
-
     $("#pastilleun").addClass('active');
     changePastilleActive();
+
+  //  $("#legend").animate({"margin-left": "-"+ img_width/10000 +"px"}, timeTransition);
 
     console.log("Largeur de la fenetre : " + img_width);
     console.log("Page chargée");

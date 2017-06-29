@@ -25,15 +25,16 @@ body {
 
 }
 
-div#legend {
+div#legend1,#legend2,#legend3,#legend4 {
     background-color: dimgrey;
     opacity: 0.6;
     width: 33.33%;
     height: auto;
     text-align: center;
-    margin-left: 3%;
+    margin-left: 66%;
     margin-top: 84vh;
 }
+
 
 h1 {
     background-color: rosybrown;
@@ -64,6 +65,14 @@ div .image {
 }
 
 /* Revoir les positions ci-dessous */
+/*#anim{
+
+    position: fixed;
+    top: 40vh;
+    left: 20;
+}*/
+
+
 #previous {
     position: fixed;
     top: 40vh;
