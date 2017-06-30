@@ -113,12 +113,6 @@ function nextImage() {
     cpt++;
 }
 
- //A voir faire varier ou nn la taille de la police
-// $("h1").animate({"margin-left": "-" + img_width  + "px"}, timeTransition);
- //$("h3").animate({"margin-left": "-" + img_width + "px"}, timeTransition)*/
-
-
-
 function previousImage() {
     // !$("#next").hasClass('disabled')
     if (!$("#previous").hasClass('disabled')) { //permet de test si le status est disabled sur le button prev, si il est pas disable on passe
@@ -383,10 +377,6 @@ function changeTitleActiveFromMove(move, id) {
 }
 
 function getSlide1(){
-   /* $("#pastilleun").addClass('disabled');
-    $("#pastilledeux").addClass('disabled');
-    $("#pastilletrois").addClass('disabled');
-    $("#pastillequatre").addClass('disabled');*/
 
     if( $("#pastillequatre").hasClass("active")){
         nextImage();
@@ -402,19 +392,9 @@ function getSlide1(){
         previousDisable(false);
         nextImage();
     }
-   /* $("#pastilleun").removeClass('disabled');
-    $("#pastilledeux").removeClass('disabled');
-    $("#pastilletrois").removeClass('disabled');
-    $("#pastillequatre").removeClass('disabled');*/
 
 }
 function getSlide2(){
-
-  /*  $("#pastilleun").addClass('disabled');
-    $("#pastilledeux").addClass('disabled');
-    $("#pastilletrois").addClass('disabled');
-    $("#pastillequatre").addClass('disabled');*/
-
 
     if( $("#pastilleun").hasClass("active")){
         nextImage();
@@ -422,12 +402,7 @@ function getSlide2(){
     if( $("#pastilletrois").hasClass("active")){
         previousImage();
     }
-  /*  if( $("#pastilletrois").hasClass("activetest")){
-        previousImage();
-    }*/
-  /*  if( $("#pastillequatre").hasClass("activetest")){
-        previousImage();
-    }*/
+
     if( $("#pastillequatre").hasClass("active")){
 
       //  previousDisable(fals);
@@ -436,17 +411,9 @@ function getSlide2(){
         nextImage();
 
     }
-        /* $("#pastilleun").removeClass('disabled');
-         $("#pastilledeux").removeClass('disabled');
-         $("#pastilletrois").removeClass('disabled');
-         $("#pastillequatre").removeClass('disabled');*/
 }
 function getSlide3(){
 
-  /*  $("#pastilleun").addClass('disabled');
-    $("#pastilledeux").addClass('disabled');
-    $("#pastilletrois").addClass('disabled');
-    $("#pastillequatre").addClass('disabled');*/
     if( $("#pastilleun").hasClass("active")){
 
         //  previousDisable(fals);
@@ -462,18 +429,8 @@ function getSlide3(){
         previousImage();
     }
 
-  /*  $("#pastilleun").removeClass('disabled');
-    $("#pastilledeux").removeClass('disabled');
-    $("#pastilletrois").removeClass('disabled');
-    $("#pastillequatre").removeClass('disabled');*/
-
 }
 function getSlide4(){
-
-   /* $("#pastilleun").addClass('disabled');
-    $("#pastilledeux").addClass('disabled');
-    $("#pastilletrois").addClass('disabled');
-    $("#pastillequatre").addClass('disabled');*/
 
     if( $("#pastilledeux").hasClass("active")){
 
@@ -488,11 +445,6 @@ function getSlide4(){
     if( $("#pastilleun").hasClass("active")){
        previousImage();
     }
-
-  /*  $("#pastilleun").removeClass('disabled');
-    $("#pastilledeux").removeClass('disabled');
-    $("#pastilletrois").removeClass('disabled');
-    $("#pastillequatre").removeClass('disabled');*/
 }
 
 $("a").click(function () {
