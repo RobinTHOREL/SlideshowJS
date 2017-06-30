@@ -107,147 +107,6 @@ function nextImage() {
  //$("h3").animate({"margin-left": "-" + img_width + "px"}, timeTransition)*/
 
 
-function changeTitleActiveFromMove(move, id) {
-
-    //alert('move : ' + move + ', id : ' + id );
-
-    //$(".active").prop('class', '');
-    switch(id){
-        case 'legend1':
-            if(move == 'next') {
-                $("h1.Title1").animate({fontSize: '2.5em'}, timeTransitionTitle);
-                $("h3.Desc1").animate({fontSize: '1.5em'}, timeTransitionTitle);
-                $("div.animetitle1").animate({"margin-left":  (img_width - ($("#legend1").width())) + "px"}, timeTransitionTitle);
-                $("h1.Title2").animate({fontSize: '3.5em'}, timeTransitionTitle);
-                $("h3.Desc2").animate({fontSize: '2em'}, timeTransitionTitle);
-                $("div.animetitle2").animate({"margin-left": "-" + img_width / 10000 + "px"}, timeTransitionTitle);
-                //$("div.animtitle3").animate({"margin-left": img_width + "px"}, timeTransition);
-                $("#legend1").removeClass('activeTitle');
-                $("#legend2").prop('class', 'animetitle2');
-                $(".activeTitle").prop('class', 'animetitle2');
-                $("#legend2").addClass('activeTitle');
-
-
-                //changePastilleActive()
-                //alert('Size : '+ $("#legend1").width());
-                //changePastilleActive();
-
-            } else if(move == 'previous') {
-
-                $("h1.Title1").animate({fontSize: '2.5em'}, timeTransitionTitle);
-                $("h3.Desc1").animate({fontSize: '1.5em'}, timeTransitionTitle);
-                $("div.animetitle1").animate({"margin-left":  (img_width - ($("#legend1").width())) + "px"}, timeTransitionTitle);
-                $("div.animetitle4").animate({"margin-left": "-" + img_width / 10000 + "px"}, timeTransitionTitle);
-                $("h1.Title4").animate({fontSize: '3.5em'}, timeTransitionTitle);
-                $("h3.Desc4").animate({fontSize: '2em'}, timeTransitionTitle);
-                //$("div.animtitle3").animate({"margin-left": img_width + "px"}, timeTransition);
-                $("#legend1").removeClass('activeTitle');
-                $("#legend4").prop('class', 'animetitle4');
-                $(".activeTitle").prop('class', 'animetitle4');
-                $("#legend4").addClass('activeTitle');
-
-            }
-            break;
-        case 'legend2':
-            if(move == 'next') {
-                $("h1.Title2").animate({fontSize: '2.5em'}, timeTransitionTitle);
-                $("h3.Desc2").animate({fontSize: '1.5em'}, timeTransitionTitle);
-                $("div.animetitle2").animate({"margin-left":  (img_width - ($("#legend2").width())) + "px"}, timeTransitionTitle);
-                $("div.animetitle3").animate({"margin-left": "-" + img_width / 10000 + "px"}, timeTransitionTitle);
-                $("h1.Title3").animate({fontSize: '3.5em'}, timeTransitionTitle);
-                $("h3.Desc3").animate({fontSize: '2em'}, timeTransitionTitle);
-                //$("div.animtitle4").animate({"margin-left": img_width + "px"}, timeTransition);
-                //changeTitleActiveFromMove();
-                $("#legend2").removeClass('activeTitle');
-                $("#legend3").prop('class', 'animetitle3');
-                $(".activeTitle").prop('class', 'animetitle3');
-                $("#legend3").addClass('activeTitle');
-
-
-            } else if(move == 'previous') {
-
-                $("h1.Title2").animate({fontSize: '2.5em'}, timeTransitionTitle);
-                $("h3.Desc2").animate({fontSize: '1.5em'}, timeTransitionTitle);
-                $("div.animetitle2").animate({"margin-left":  (img_width - ($("#legend2").width())) + "px"}, timeTransitionTitle);
-                $("div.animetitle1").animate({"margin-left": "-" + img_width / 10000 + "px"}, timeTransitionTitle);
-                //$("div.animtitle3").animate({"margin-left": img_width + "px"}, timeTransition);
-                $("h1.Title1").animate({fontSize: '3.5em'}, timeTransitionTitle);
-                $("h3.Desc1").animate({fontSize: '2em'}, timeTransitionTitle);
-                $("#legend2").removeClass('activeTitle');
-                $("#legend1").prop('class', 'animetitle1');
-                $(".activeTitle").prop('class', 'animetitle1');
-                $("#legend1").addClass('activeTitle');
-
-
-            }
-            break;
-        case 'legend3':
-            if(move == 'next') {
-
-                $("h1.Title3").animate({fontSize: '2.5em'}, timeTransitionTitle);
-                $("h3.Desc3").animate({fontSize: '1.5em'}, timeTransitionTitle);
-                $("div.animetitle3").animate({"margin-left":  (img_width - ($("#legend3").width())) + "px"}, timeTransitionTitle);
-                $("div.animetitle4").animate({"margin-left": "-" + img_width / 10000 + "px"}, timeTransitionTitle);
-                //$("div.animtitle2").animate({"margin-left": "-" + img_width / 10000 + "px"}, timeTransition);
-               // changeTitleActiveFromMove();
-                $("h1.Title4").animate({fontSize: '3.5em'}, timeTransitionTitle);
-                $("h3.Desc4").animate({fontSize: '2em'}, timeTransitionTitle);
-               $("#legend3").removeClass('activeTitle');
-               $("#legend4").prop('class','animetitle4');
-                $(".activeTitle").prop('class', 'animetitle4');
-               $("#legend4").addClass('activeTitle');
-
-            } else if(move == 'previous') {
-
-                $("h1.Title3").animate({fontSize: '2.5em'}, timeTransitionTitle);
-                $("h3.Desc3").animate({fontSize: '1.5em'}, timeTransitionTitle);
-                $("div.animetitle3").animate({"margin-left":  (img_width - ($("#legend3").width())) + "px"}, timeTransitionTitle);
-                $("div.animetitle2").animate({"margin-left": "-" + img_width / 10000 + "px"}, timeTransitionTitle);
-                $("h1.Title2").animate({fontSize: '3.5em'}, timeTransitionTitle);
-                $("h3.Desc2").animate({fontSize: '2em'}, timeTransitionTitle);
-                //$("div.animtitle3").animate({"margin-left": img_width + "px"}, timeTransition);
-                $("#legend3").removeClass('activeTitle');
-                $("#legend2").prop('class', 'animetitle2');
-                $(".activeTitle").prop('class', 'animetitle2');
-                $("#legend2").addClass('activeTitle');
-
-            }
-                break;
-
-        case 'legend4':
-            if(move == 'next') {
-                $("h1.Title4").animate({fontSize: '2.5em'}, timeTransitionTitle);
-                $("h3.Desc4").animate({fontSize: '1.5em'}, timeTransitionTitle);
-                $("div.animetitle4").animate({"margin-left":  (img_width - ($("#legend4").width())) + "px"}, timeTransitionTitle);
-                $("div.animetitle1").animate({"margin-left": "-" + img_width / 10000 + "px"}, timeTransitionTitle);
-                $("h1.Title1").animate({fontSize: '3.5em'}, timeTransitionTitle);
-                $("h3.Desc1").animate({fontSize: '2em'}, timeTransitionTitle);
-               $("#legend4").removeClass('activeTitle');
-                $("#legend1").prop('class', 'animetitle1');
-                $(".activeTitle").prop('class', 'animetitle1');
-                $("#legend1").addClass('activeTitle');
-
-
-                // changeTitleActiveFromMove();
-            } else if(move == 'previous') {
-
-                $("h1.Title4").animate({fontSize: '2.5em'}, timeTransitionTitle);
-                $("h3.Desc4").animate({fontSize: '1.5em'}, timeTransitionTitle);
-                $("div.animetitle4").animate({"margin-left":  (img_width - ($("#legend4").width())) + "px"}, timeTransitionTitle);
-                $("div.animetitle3").animate({"margin-left": "-" + img_width / 10000 + "px"}, timeTransitionTitle);
-                //$("div.animtitle3").animate({"margin-left": img_width + "px"}, timeTransition);
-                $("h1.Title3").animate({fontSize: '3.5em'}, timeTransitionTitle);
-                $("h3.Desc3").animate({fontSize: '2em'}, timeTransitionTitle);
-                $("#legend4").removeClass('activeTitle');
-                $("#legend3").prop('class', 'animetitle3');
-                $(".activeTitle").prop('class', 'animetitle3');
-                $("#legend3").addClass('activeTitle');
-            }
-            break;
-        default:
-            break;
-    }
-}
 
 function previousImage() {
     // !$("#next").hasClass('disabled')
@@ -255,7 +114,15 @@ function previousImage() {
         previousDisable(true); // le disable
         //previous.prop('disabled', false);
         changeImgPrevious(); // appel maintenant pour charger img avant de se deplacer vers l'arriere , fixed bug marge blanche.
-
+        $('#rail').animate({
+            "margin-left": "0px"
+        }, {
+            duration: timeTransition,
+            complete: function () {
+                previousDisable(false)
+            }
+        }); //sans changeImgPrevious mettre le mouvement la
+        //permet de enable le button quand l'anime est terminé
         if(cpt==0){
 
             $("#legend1").addClass('activeTitle');
@@ -268,15 +135,7 @@ function previousImage() {
         $(".active").each(function () {
             changePastilleActiveFromMove('previous', this.id);
         });
-        $('#rail').animate({
-            "margin-left": "0px"
-        }, {
-            duration: timeTransition,
-            complete: function () {
-                previousDisable(false)
-            }
-        }); //sans changeImgPrevious mettre le mouvement la
-        //permet de enable le button quand l'anime est terminé
+
     }
     cpt++;
 }
@@ -368,6 +227,261 @@ function changePastilleActiveFromMove(move, id) {
         default:
             break;
     }
+}
+
+function changeTitleActiveFromMove(move, id) {
+
+    //alert('move : ' + move + ', id : ' + id );
+
+    //$(".active").prop('class', '');
+    switch(id){
+        case 'legend1':
+            if(move == 'next') {
+                $("h1.Title1").animate({fontSize: '2.5em'}, timeTransitionTitle);
+                $("h3.Desc1").animate({fontSize: '1.5em'}, timeTransitionTitle);
+                $("div.animetitle1").animate({"margin-left":  (img_width - ($("#legend1").width())) + "px"}, timeTransitionTitle);
+                $("h1.Title2").animate({fontSize: '3.5em'}, timeTransitionTitle);
+                $("h3.Desc2").animate({fontSize: '2em'}, timeTransitionTitle);
+                $("div.animetitle2").animate({"margin-left": "-" + img_width / 10000 + "px"}, timeTransitionTitle);
+                //$("div.animtitle3").animate({"margin-left": img_width + "px"}, timeTransition);
+                $("#legend1").removeClass('activeTitle');
+                $("#legend2").prop('class', 'animetitle2');
+                $(".activeTitle").prop('class', 'animetitle2');
+                $("#legend2").addClass('activeTitle');
+
+
+                //changePastilleActive()
+                //alert('Size : '+ $("#legend1").width());
+                //changePastilleActive();
+
+            } else if(move == 'previous') {
+
+                $("h1.Title1").animate({fontSize: '2.5em'}, timeTransitionTitle);
+                $("h3.Desc1").animate({fontSize: '1.5em'}, timeTransitionTitle);
+                $("div.animetitle1").animate({"margin-left":  (img_width - ($("#legend1").width())) + "px"}, timeTransitionTitle);
+                $("div.animetitle4").animate({"margin-left": "-" + img_width / 10000 + "px"}, timeTransitionTitle);
+                $("h1.Title4").animate({fontSize: '3.5em'}, timeTransitionTitle);
+                $("h3.Desc4").animate({fontSize: '2em'}, timeTransitionTitle);
+                //$("div.animtitle3").animate({"margin-left": img_width + "px"}, timeTransition);
+                $("#legend1").removeClass('activeTitle');
+                $("#legend4").prop('class', 'animetitle4');
+                $(".activeTitle").prop('class', 'animetitle4');
+                $("#legend4").addClass('activeTitle');
+
+            }
+            break;
+        case 'legend2':
+            if(move == 'next') {
+                $("h1.Title2").animate({fontSize: '2.5em'}, timeTransitionTitle);
+                $("h3.Desc2").animate({fontSize: '1.5em'}, timeTransitionTitle);
+                $("div.animetitle2").animate({"margin-left":  (img_width - ($("#legend2").width())) + "px"}, timeTransitionTitle);
+                $("div.animetitle3").animate({"margin-left": "-" + img_width / 10000 + "px"}, timeTransitionTitle);
+                $("h1.Title3").animate({fontSize: '3.5em'}, timeTransitionTitle);
+                $("h3.Desc3").animate({fontSize: '2em'}, timeTransitionTitle);
+                //$("div.animtitle4").animate({"margin-left": img_width + "px"}, timeTransition);
+                //changeTitleActiveFromMove();
+                $("#legend2").removeClass('activeTitle');
+                $("#legend3").prop('class', 'animetitle3');
+                $(".activeTitle").prop('class', 'animetitle3');
+                $("#legend3").addClass('activeTitle');
+
+
+            } else if(move == 'previous') {
+
+                $("h1.Title2").animate({fontSize: '2.5em'}, timeTransitionTitle);
+                $("h3.Desc2").animate({fontSize: '1.5em'}, timeTransitionTitle);
+                $("div.animetitle2").animate({"margin-left":  (img_width - ($("#legend2").width())) + "px"}, timeTransitionTitle);
+                $("div.animetitle1").animate({"margin-left": "-" + img_width / 10000 + "px"}, timeTransitionTitle);
+                //$("div.animtitle3").animate({"margin-left": img_width + "px"}, timeTransition);
+                $("h1.Title1").animate({fontSize: '3.5em'}, timeTransitionTitle);
+                $("h3.Desc1").animate({fontSize: '2em'}, timeTransitionTitle);
+                $("#legend2").removeClass('activeTitle');
+                $("#legend1").prop('class', 'animetitle1');
+                $(".activeTitle").prop('class', 'animetitle1');
+                $("#legend1").addClass('activeTitle');
+
+
+            }
+            break;
+        case 'legend3':
+            if(move == 'next') {
+
+                $("h1.Title3").animate({fontSize: '2.5em'}, timeTransitionTitle);
+                $("h3.Desc3").animate({fontSize: '1.5em'}, timeTransitionTitle);
+                $("div.animetitle3").animate({"margin-left":  (img_width - ($("#legend3").width())) + "px"}, timeTransitionTitle);
+                $("div.animetitle4").animate({"margin-left": "-" + img_width / 10000 + "px"}, timeTransitionTitle);
+                //$("div.animtitle2").animate({"margin-left": "-" + img_width / 10000 + "px"}, timeTransition);
+                // changeTitleActiveFromMove();
+                $("h1.Title4").animate({fontSize: '3.5em'}, timeTransitionTitle);
+                $("h3.Desc4").animate({fontSize: '2em'}, timeTransitionTitle);
+                $("#legend3").removeClass('activeTitle');
+                $("#legend4").prop('class','animetitle4');
+                $(".activeTitle").prop('class', 'animetitle4');
+                $("#legend4").addClass('activeTitle');
+
+            } else if(move == 'previous') {
+
+                $("h1.Title3").animate({fontSize: '2.5em'}, timeTransitionTitle);
+                $("h3.Desc3").animate({fontSize: '1.5em'}, timeTransitionTitle);
+                $("div.animetitle3").animate({"margin-left":  (img_width - ($("#legend3").width())) + "px"}, timeTransitionTitle);
+                $("div.animetitle2").animate({"margin-left": "-" + img_width / 10000 + "px"}, timeTransitionTitle);
+                $("h1.Title2").animate({fontSize: '3.5em'}, timeTransitionTitle);
+                $("h3.Desc2").animate({fontSize: '2em'}, timeTransitionTitle);
+                //$("div.animtitle3").animate({"margin-left": img_width + "px"}, timeTransition);
+                $("#legend3").removeClass('activeTitle');
+                $("#legend2").prop('class', 'animetitle2');
+                $(".activeTitle").prop('class', 'animetitle2');
+                $("#legend2").addClass('activeTitle');
+
+            }
+            break;
+
+        case 'legend4':
+            if(move == 'next') {
+                $("h1.Title4").animate({fontSize: '2.5em'}, timeTransitionTitle);
+                $("h3.Desc4").animate({fontSize: '1.5em'}, timeTransitionTitle);
+                $("div.animetitle4").animate({"margin-left":  (img_width - ($("#legend4").width())) + "px"}, timeTransitionTitle);
+                $("div.animetitle1").animate({"margin-left": "-" + img_width / 10000 + "px"}, timeTransitionTitle);
+                $("h1.Title1").animate({fontSize: '3.5em'}, timeTransitionTitle);
+                $("h3.Desc1").animate({fontSize: '2em'}, timeTransitionTitle);
+                $("#legend4").removeClass('activeTitle');
+                $("#legend1").prop('class', 'animetitle1');
+                $(".activeTitle").prop('class', 'animetitle1');
+                $("#legend1").addClass('activeTitle');
+
+
+                // changeTitleActiveFromMove();
+            } else if(move == 'previous') {
+
+                $("h1.Title4").animate({fontSize: '2.5em'}, timeTransitionTitle);
+                $("h3.Desc4").animate({fontSize: '1.5em'}, timeTransitionTitle);
+                $("div.animetitle4").animate({"margin-left":  (img_width - ($("#legend4").width())) + "px"}, timeTransitionTitle);
+                $("div.animetitle3").animate({"margin-left": "-" + img_width / 10000 + "px"}, timeTransitionTitle);
+                //$("div.animtitle3").animate({"margin-left": img_width + "px"}, timeTransition);
+                $("h1.Title3").animate({fontSize: '3.5em'}, timeTransitionTitle);
+                $("h3.Desc3").animate({fontSize: '2em'}, timeTransitionTitle);
+                $("#legend4").removeClass('activeTitle');
+                $("#legend3").prop('class', 'animetitle3');
+                $(".activeTitle").prop('class', 'animetitle3');
+                $("#legend3").addClass('activeTitle');
+            }
+            break;
+        default:
+            break;
+    }
+}
+
+function getSlide1(){
+   /* $("#pastilleun").addClass('disabled');
+    $("#pastilledeux").addClass('disabled');
+    $("#pastilletrois").addClass('disabled');
+    $("#pastillequatre").addClass('disabled');*/
+
+    if( $("#pastillequatre").hasClass("active")){
+        nextImage();
+    }
+    if( $("#pastilledeux").hasClass("active")){
+        previousImage();
+    }
+
+    if( $("#pastilletrois").hasClass("active")){
+
+        //  previousDisable(fals);
+        nextImage();
+        previousDisable(false);
+        nextImage();
+    }
+   /* $("#pastilleun").removeClass('disabled');
+    $("#pastilledeux").removeClass('disabled');
+    $("#pastilletrois").removeClass('disabled');
+    $("#pastillequatre").removeClass('disabled');*/
+
+}
+function getSlide2(){
+
+  /*  $("#pastilleun").addClass('disabled');
+    $("#pastilledeux").addClass('disabled');
+    $("#pastilletrois").addClass('disabled');
+    $("#pastillequatre").addClass('disabled');*/
+
+
+    if( $("#pastilleun").hasClass("active")){
+        nextImage();
+    }
+    if( $("#pastilletrois").hasClass("active")){
+        previousImage();
+    }
+  /*  if( $("#pastilletrois").hasClass("activetest")){
+        previousImage();
+    }*/
+  /*  if( $("#pastillequatre").hasClass("activetest")){
+        previousImage();
+    }*/
+    if( $("#pastillequatre").hasClass("active")){
+
+      //  previousDisable(fals);
+        nextImage();
+        previousDisable(false);
+        nextImage();
+
+    }
+        /* $("#pastilleun").removeClass('disabled');
+         $("#pastilledeux").removeClass('disabled');
+         $("#pastilletrois").removeClass('disabled');
+         $("#pastillequatre").removeClass('disabled');*/
+}
+function getSlide3(){
+
+  /*  $("#pastilleun").addClass('disabled');
+    $("#pastilledeux").addClass('disabled');
+    $("#pastilletrois").addClass('disabled');
+    $("#pastillequatre").addClass('disabled');*/
+    if( $("#pastilleun").hasClass("active")){
+
+        //  previousDisable(fals);
+        nextImage();
+        previousDisable(false);
+        nextImage();
+    }
+
+    if( $("#pastilledeux").hasClass("active")){
+        nextImage();
+    }
+    if( $("#pastillequatre").hasClass("active")){
+        previousImage();
+    }
+
+  /*  $("#pastilleun").removeClass('disabled');
+    $("#pastilledeux").removeClass('disabled');
+    $("#pastilletrois").removeClass('disabled');
+    $("#pastillequatre").removeClass('disabled');*/
+
+}
+function getSlide4(){
+
+   /* $("#pastilleun").addClass('disabled');
+    $("#pastilledeux").addClass('disabled');
+    $("#pastilletrois").addClass('disabled');
+    $("#pastillequatre").addClass('disabled');*/
+
+    if( $("#pastilledeux").hasClass("active")){
+
+        //  previousDisable(fals);
+        nextImage();
+        previousDisable(false);
+        nextImage();
+    }
+    if( $("#pastilletrois").hasClass("active")){
+        nextImage();
+    }
+    if( $("#pastilleun").hasClass("active")){
+       previousImage();
+    }
+
+  /*  $("#pastilleun").removeClass('disabled');
+    $("#pastilledeux").removeClass('disabled');
+    $("#pastilletrois").removeClass('disabled');
+    $("#pastillequatre").removeClass('disabled');*/
 }
 
 $("a").click(function () {

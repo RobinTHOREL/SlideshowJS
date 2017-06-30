@@ -1,28 +1,24 @@
 html {
     top: 0;
     left: 0;
-
 }
 
 body {
     background-color: black;
     position: relative;
-
 }
 
 #rail {
     width: 7000px; /* Change to n*image.width() for full container */
     border: 2px; /*solid yellow; */
-
-
 }
+
 #slideshow {
     width: 100%; /* Change to 100% for full container */
     height: 100%; /* Change to 100% for full container */
     overflow: hidden;
     position: absolute;
     /* border:2px solid red; */
-
 }
 
 div#legend1,#legend2,#legend3,#legend4 {
@@ -34,7 +30,6 @@ div#legend1,#legend2,#legend3,#legend4 {
     margin-left: 66%;
     margin-top: 85vh;
 }
-
 
 h1 {
     background-color: #fcf8e3;
@@ -138,7 +133,6 @@ i.components:hover {
 a.active {
     color: rgb(35,82,124);
 }
-
 
 @media screen and (min-width: 800px) and (max-width: 1200px) {
 
