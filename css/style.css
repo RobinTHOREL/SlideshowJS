@@ -32,17 +32,17 @@ div#legend1,#legend2,#legend3,#legend4 {
     height: auto;
     text-align: center;
     margin-left: 66%;
-    margin-top: 84vh;
+    margin-top: 85vh;
 }
 
 
 h1 {
-    background-color: rosybrown;
+    background-color: #fcf8e3;
     padding: 7px;
 }
 
 h3 {
-    background-color: rosybrown;
+    background-color: #fcf8e3;
     padding: 5px;
     opacity: 0.8;
 }
@@ -137,6 +137,56 @@ i.components:hover {
 
 a.active {
     color: rgb(35,82,124);
+}
+
+
+@media screen and (min-width: 800px) and (max-width: 1200px) {
+
+
+    div#legend1,#legend2,#legend3,#legend4 {
+        background-color: dimgrey;
+        opacity: 0.6;
+        width: 40%;
+        height: auto;
+        text-align: center;
+        margin-left: 60%;
+        margin-top: 84vh;
+    }
+    h1 {
+        background-color: #fcf8e3;
+        padding: 1px;
+    }
+    h3 {
+        background-color: #fcf8e3;
+        padding: 1px;
+        opacity: 0.8;
+    }
+}
+@media screen and (min-width: 200px) and (max-width: 800px) {
+
+
+    div#legend1,#legend2,#legend3,#legend4 {
+        background-color: dimgrey;
+        opacity: 0.6;
+        width: 52%;
+        height: auto;
+        text-align: center;
+        margin-left: 48%;
+        margin-top: 78vh;
+    }
+
+    h1 {
+        font-size: 1em;
+        background-color: #fcf8e3;
+        padding: 2px;
+    }
+    h3 {
+        font-size: 1em;
+        background-color: #fcf8e3;
+        padding: 1px;
+        opacity: 0.8;
+    }
+
 }
 
 

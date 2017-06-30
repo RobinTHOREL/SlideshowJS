@@ -116,9 +116,9 @@ function changeTitleActiveFromMove(move, id) {
         case 'legend1':
             if(move == 'next') {
                 $("h1.Title1").animate({fontSize: '2.5em'}, timeTransitionTitle);
-                $("h3.Desc1").animate({fontSize: '2em'}, timeTransitionTitle);
+                $("h3.Desc1").animate({fontSize: '1.5em'}, timeTransitionTitle);
                 $("div.animetitle1").animate({"margin-left":  (img_width - ($("#legend1").width())) + "px"}, timeTransitionTitle);
-                $("h1.Title2").animate({fontSize: '4em'}, timeTransitionTitle);
+                $("h1.Title2").animate({fontSize: '3.5em'}, timeTransitionTitle);
                 $("h3.Desc2").animate({fontSize: '2em'}, timeTransitionTitle);
                 $("div.animetitle2").animate({"margin-left": "-" + img_width / 10000 + "px"}, timeTransitionTitle);
                 //$("div.animtitle3").animate({"margin-left": img_width + "px"}, timeTransition);
@@ -135,10 +135,10 @@ function changeTitleActiveFromMove(move, id) {
             } else if(move == 'previous') {
 
                 $("h1.Title1").animate({fontSize: '2.5em'}, timeTransitionTitle);
-                $("h3.Desc1").animate({fontSize: '2em'}, timeTransitionTitle);
+                $("h3.Desc1").animate({fontSize: '1.5em'}, timeTransitionTitle);
                 $("div.animetitle1").animate({"margin-left":  (img_width - ($("#legend1").width())) + "px"}, timeTransitionTitle);
                 $("div.animetitle4").animate({"margin-left": "-" + img_width / 10000 + "px"}, timeTransitionTitle);
-                $("h1.Title4").animate({fontSize: '4em'}, timeTransitionTitle);
+                $("h1.Title4").animate({fontSize: '3.5em'}, timeTransitionTitle);
                 $("h3.Desc4").animate({fontSize: '2em'}, timeTransitionTitle);
                 //$("div.animtitle3").animate({"margin-left": img_width + "px"}, timeTransition);
                 $("#legend1").removeClass('activeTitle');
@@ -151,10 +151,10 @@ function changeTitleActiveFromMove(move, id) {
         case 'legend2':
             if(move == 'next') {
                 $("h1.Title2").animate({fontSize: '2.5em'}, timeTransitionTitle);
-                $("h3.Desc2").animate({fontSize: '2em'}, timeTransitionTitle);
+                $("h3.Desc2").animate({fontSize: '1.5em'}, timeTransitionTitle);
                 $("div.animetitle2").animate({"margin-left":  (img_width - ($("#legend2").width())) + "px"}, timeTransitionTitle);
                 $("div.animetitle3").animate({"margin-left": "-" + img_width / 10000 + "px"}, timeTransitionTitle);
-                $("h1.Title3").animate({fontSize: '4em'}, timeTransitionTitle);
+                $("h1.Title3").animate({fontSize: '3.5em'}, timeTransitionTitle);
                 $("h3.Desc3").animate({fontSize: '2em'}, timeTransitionTitle);
                 //$("div.animtitle4").animate({"margin-left": img_width + "px"}, timeTransition);
                 //changeTitleActiveFromMove();
@@ -167,11 +167,11 @@ function changeTitleActiveFromMove(move, id) {
             } else if(move == 'previous') {
 
                 $("h1.Title2").animate({fontSize: '2.5em'}, timeTransitionTitle);
-                $("h3.Desc2").animate({fontSize: '2em'}, timeTransitionTitle);
+                $("h3.Desc2").animate({fontSize: '1.5em'}, timeTransitionTitle);
                 $("div.animetitle2").animate({"margin-left":  (img_width - ($("#legend2").width())) + "px"}, timeTransitionTitle);
                 $("div.animetitle1").animate({"margin-left": "-" + img_width / 10000 + "px"}, timeTransitionTitle);
                 //$("div.animtitle3").animate({"margin-left": img_width + "px"}, timeTransition);
-                $("h1.Title1").animate({fontSize: '4em'}, timeTransitionTitle);
+                $("h1.Title1").animate({fontSize: '3.5em'}, timeTransitionTitle);
                 $("h3.Desc1").animate({fontSize: '2em'}, timeTransitionTitle);
                 $("#legend2").removeClass('activeTitle');
                 $("#legend1").prop('class', 'animetitle1');
@@ -185,12 +185,12 @@ function changeTitleActiveFromMove(move, id) {
             if(move == 'next') {
 
                 $("h1.Title3").animate({fontSize: '2.5em'}, timeTransitionTitle);
-                $("h3.Desc3").animate({fontSize: '2em'}, timeTransitionTitle);
+                $("h3.Desc3").animate({fontSize: '1.5em'}, timeTransitionTitle);
                 $("div.animetitle3").animate({"margin-left":  (img_width - ($("#legend3").width())) + "px"}, timeTransitionTitle);
                 $("div.animetitle4").animate({"margin-left": "-" + img_width / 10000 + "px"}, timeTransitionTitle);
                 //$("div.animtitle2").animate({"margin-left": "-" + img_width / 10000 + "px"}, timeTransition);
                // changeTitleActiveFromMove();
-                $("h1.Title4").animate({fontSize: '4em'}, timeTransitionTitle);
+                $("h1.Title4").animate({fontSize: '3.5em'}, timeTransitionTitle);
                 $("h3.Desc4").animate({fontSize: '2em'}, timeTransitionTitle);
                $("#legend3").removeClass('activeTitle');
                $("#legend4").prop('class','animetitle4');
@@ -200,10 +200,10 @@ function changeTitleActiveFromMove(move, id) {
             } else if(move == 'previous') {
 
                 $("h1.Title3").animate({fontSize: '2.5em'}, timeTransitionTitle);
-                $("h3.Desc3").animate({fontSize: '2em'}, timeTransitionTitle);
+                $("h3.Desc3").animate({fontSize: '1.5em'}, timeTransitionTitle);
                 $("div.animetitle3").animate({"margin-left":  (img_width - ($("#legend3").width())) + "px"}, timeTransitionTitle);
                 $("div.animetitle2").animate({"margin-left": "-" + img_width / 10000 + "px"}, timeTransitionTitle);
-                $("h1.Title2").animate({fontSize: '4em'}, timeTransitionTitle);
+                $("h1.Title2").animate({fontSize: '3.5em'}, timeTransitionTitle);
                 $("h3.Desc2").animate({fontSize: '2em'}, timeTransitionTitle);
                 //$("div.animtitle3").animate({"margin-left": img_width + "px"}, timeTransition);
                 $("#legend3").removeClass('activeTitle');
@@ -217,10 +217,10 @@ function changeTitleActiveFromMove(move, id) {
         case 'legend4':
             if(move == 'next') {
                 $("h1.Title4").animate({fontSize: '2.5em'}, timeTransitionTitle);
-                $("h3.Desc4").animate({fontSize: '2em'}, timeTransitionTitle);
+                $("h3.Desc4").animate({fontSize: '1.5em'}, timeTransitionTitle);
                 $("div.animetitle4").animate({"margin-left":  (img_width - ($("#legend4").width())) + "px"}, timeTransitionTitle);
                 $("div.animetitle1").animate({"margin-left": "-" + img_width / 10000 + "px"}, timeTransitionTitle);
-                $("h1.Title1").animate({fontSize: '4em'}, timeTransitionTitle);
+                $("h1.Title1").animate({fontSize: '3.5em'}, timeTransitionTitle);
                 $("h3.Desc1").animate({fontSize: '2em'}, timeTransitionTitle);
                $("#legend4").removeClass('activeTitle');
                 $("#legend1").prop('class', 'animetitle1');
@@ -232,11 +232,11 @@ function changeTitleActiveFromMove(move, id) {
             } else if(move == 'previous') {
 
                 $("h1.Title4").animate({fontSize: '2.5em'}, timeTransitionTitle);
-                $("h3.Desc4").animate({fontSize: '2em'}, timeTransitionTitle);
+                $("h3.Desc4").animate({fontSize: '1.5em'}, timeTransitionTitle);
                 $("div.animetitle4").animate({"margin-left":  (img_width - ($("#legend4").width())) + "px"}, timeTransitionTitle);
                 $("div.animetitle3").animate({"margin-left": "-" + img_width / 10000 + "px"}, timeTransitionTitle);
                 //$("div.animtitle3").animate({"margin-left": img_width + "px"}, timeTransition);
-                $("h1.Title3").animate({fontSize: '4em'}, timeTransitionTitle);
+                $("h1.Title3").animate({fontSize: '3.5em'}, timeTransitionTitle);
                 $("h3.Desc3").animate({fontSize: '2em'}, timeTransitionTitle);
                 $("#legend4").removeClass('activeTitle');
                 $("#legend3").prop('class', 'animetitle3');
@@ -248,7 +248,6 @@ function changeTitleActiveFromMove(move, id) {
             break;
     }
 }
-
 
 function previousImage() {
     // !$("#next").hasClass('disabled')
