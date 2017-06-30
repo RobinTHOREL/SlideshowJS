@@ -51,10 +51,21 @@ function previousDisable(isDisabled) {
     if (isDisabled) {
         $("#previous").addClass('disabled'); //permet de setter disabled au button prev
         $("#next").addClass('disabled'); //permet de setter disabled au button next
+        $("#pastilleun").addClass('disabled');
+        $("#pastilledeux").addClass('disabled');
+        $("#pastilletrois").addClass('disabled');
+        $("#pastillequatre").addClass('disabled');
+
+
+
 
     } else {
         $("#previous").removeClass('disabled'); //permet de unsetter disabled au button prev
         $("#next").removeClass('disabled'); //permet de setter disabled au button next
+        $("#pastilleun").removeClass('disabled');
+        $("#pastilledeux").removeClass('disabled');
+        $("#pastilletrois").removeClass('disabled');
+        $("#pastillequatre").removeClass('disabled');
 
     }
 
@@ -485,9 +496,14 @@ function getSlide4(){
 }
 
 $("a").click(function () {
-    $(".active").prop('class', 'fa fa-circle-o pastilles');
-    $(this).addClass('active');
-    changePastilleActive();
+
+    if(!$("#pastilleun").hasClass('disabled') && $("#pastilledeux").hasClass('disabled') && $("#pastilletrois").hasClass('disabled') && $("#pastillequatre").hasClass('disabled')) {
+        previousDisable(true);
+
+        $(".active").prop('class', 'fa fa-circle-o pastilles');
+        $(this).addClass('active');
+        changePastilleActive();
+    }
 });
 
 
