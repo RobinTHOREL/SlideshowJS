@@ -3,12 +3,13 @@
  */
 
 var timeTransition = 2000;
-var timeTransitionTitle=3000;
+var timeTransitionTitle = 3000;
 var playDefault = false;
 var timerSlide;
 var div_rail = $("#rail");
 var img_width;
 var cpt = 0;
+var nbimg=0;
 
 /* Mode pause au hover (+ opacity 0.7 sur l'image pour indiquer le mode pause a l'user)
 du slideshow s'il etait en play. La lecture reprend en sortnt du hover */
@@ -43,7 +44,7 @@ $("#previous").click(function () {
         clearInterval(timerSlide);
         $("#play").prop('class', 'fa fa-play components');
     }
-    $("#legend").animate({"margin-left": "-"+ img_width/10000 +"px"}, timeTransition);
+    //$("#legend").animate({"margin-left": "-"+ img_width/10000 +"px"}, timeTransition);
 });
 
 function previousDisable(isDisabled) {
@@ -51,10 +52,10 @@ function previousDisable(isDisabled) {
     if (isDisabled) {
         $("#previous").addClass('disabled'); //permet de setter disabled au button prev
         $("#next").addClass('disabled'); //permet de setter disabled au button next
-        $("#pastilleun").addClass('disabled');
-        $("#pastilledeux").addClass('disabled');
-        $("#pastilletrois").addClass('disabled');
-        $("#pastillequatre").addClass('disabled');
+        $("#pastille1").addClass('disabled');
+        $("#pastille2").addClass('disabled');
+        $("#pastille3").addClass('disabled');
+        $("#pastille4").addClass('disabled');
 
 
 
@@ -62,10 +63,10 @@ function previousDisable(isDisabled) {
     } else {
         $("#previous").removeClass('disabled'); //permet de unsetter disabled au button prev
         $("#next").removeClass('disabled'); //permet de setter disabled au button next
-        $("#pastilleun").removeClass('disabled');
-        $("#pastilledeux").removeClass('disabled');
-        $("#pastilletrois").removeClass('disabled');
-        $("#pastillequatre").removeClass('disabled');
+        $("#pastille1").removeClass('disabled');
+        $("#pastille2").removeClass('disabled');
+        $("#pastille3").removeClass('disabled');
+        $("#pastille4").removeClass('disabled');
 
     }
 
@@ -114,6 +115,7 @@ function nextImage() {
 }
 
 function previousImage() {
+
     // !$("#next").hasClass('disabled')
     if (!$("#previous").hasClass('disabled')) { //permet de test si le status est disabled sur le button prev, si il est pas disable on passe
         previousDisable(true); // le disable
@@ -143,6 +145,7 @@ function previousImage() {
 
     }
     cpt++;
+
 }
 
 function changeFirstImg() {
@@ -180,52 +183,53 @@ function playPause() {
 
 function changePastilleActive() {
     $(".active").prop('class', 'fa fa-dot-circle-o pastilles active');
+
 }
 
 function changePastilleActiveFromMove(move, id) {
-   // alert('move : ' + move + ', id : ' + id);
+    //alert('move : ' + move + ', id : ' + id);
     switch(id){
-        case 'pastilleun':
+        case 'pastille1':
             if(move == 'next') {
-                $("#pastilleun").prop('class', 'fa fa-circle-o pastilles');
-                $("#pastilledeux").addClass('active');
+                $("#pastille1").prop('class', 'fa fa-circle-o pastilles');
+                $("#pastille2").addClass('active');
                 changePastilleActive();
             } else if(move == 'previous') { 
-                $("#pastilleun").prop('class', 'fa fa-circle-o pastilles');
-                $("#pastillequatre").addClass('active');
+                $("#pastille1").prop('class', 'fa fa-circle-o pastilles');
+                $("#pastille4").addClass('active');
                 changePastilleActive();
             }
             break;
-        case 'pastilledeux':
+        case 'pastille2':
             if(move == 'next') {
-                $("#pastilledeux").prop('class', 'fa fa-circle-o pastilles');
-                $("#pastilletrois").addClass('active');
+                $("#pastille2").prop('class', 'fa fa-circle-o pastilles');
+                $("#pastille3").addClass('active');
                 changePastilleActive();
             } else if(move == 'previous') { 
-                $("#pastilledeux").prop('class', 'fa fa-circle-o pastilles');
-                $("#pastilleun").addClass('active');
+                $("#pastille2").prop('class', 'fa fa-circle-o pastilles');
+                $("#pastille1").addClass('active');
                 changePastilleActive();
             }
             break;
-        case 'pastilletrois':
+        case 'pastille3':
             if(move == 'next') {
-                $("#pastilletrois").prop('class', 'fa fa-circle-o pastilles');
-                $("#pastillequatre").addClass('active');
+                $("#pastille3").prop('class', 'fa fa-circle-o pastilles');
+                $("#pastille4").addClass('active');
                 changePastilleActive();
             } else if(move == 'previous') { 
-                $("#pastilletrois").prop('class', 'fa fa-circle-o pastilles');
-                $("#pastilledeux").addClass('active');
+                $("#pastille3").prop('class', 'fa fa-circle-o pastilles');
+                $("#pastille2").addClass('active');
                 changePastilleActive();
             }
             break;
-        case 'pastillequatre':
+        case 'pastille4':
             if(move == 'next') {
-                $("#pastillequatre").prop('class', 'fa fa-circle-o pastilles');
-                $("#pastilleun").addClass('active');
+                $("#pastille4").prop('class', 'fa fa-circle-o pastilles');
+                $("#pastille1").addClass('active');
                 changePastilleActive();
             } else if(move == 'previous') { 
-                $("#pastillequatre").prop('class', 'fa fa-circle-o pastilles');
-                $("#pastilletrois").addClass('active');
+                $("#pastille4").prop('class', 'fa fa-circle-o pastilles');
+                $("#pastille3").addClass('active');
                 changePastilleActive();
             }
             break;
@@ -236,7 +240,7 @@ function changePastilleActiveFromMove(move, id) {
 
 function changeTitleActiveFromMove(move, id) {
 
-    //alert('move : ' + move + ', id : ' + id );
+   // alert('move : ' + move + ', id : ' + id );
 
     //$(".active").prop('class', '');
     switch(id){
@@ -376,90 +380,17 @@ function changeTitleActiveFromMove(move, id) {
     }
 }
 
-function getSlide1(){
-
-    if( $("#pastillequatre").hasClass("active")){
-        nextImage();
-    }
-    if( $("#pastilledeux").hasClass("active")){
-        previousImage();
-    }
-
-    if( $("#pastilletrois").hasClass("active")){
-
-        //  previousDisable(fals);
-        nextImage();
-        previousDisable(false);
-        nextImage();
-    }
-
-}
-function getSlide2(){
-
-    if( $("#pastilleun").hasClass("active")){
-        nextImage();
-    }
-    if( $("#pastilletrois").hasClass("active")){
-        previousImage();
-    }
-
-    if( $("#pastillequatre").hasClass("active")){
-
-      //  previousDisable(fals);
-        nextImage();
-        previousDisable(false);
-        nextImage();
-
-    }
-}
-function getSlide3(){
-
-    if( $("#pastilleun").hasClass("active")){
-
-        //  previousDisable(fals);
-        nextImage();
-        previousDisable(false);
-        nextImage();
-    }
-
-    if( $("#pastilledeux").hasClass("active")){
-        nextImage();
-    }
-    if( $("#pastillequatre").hasClass("active")){
-        previousImage();
-    }
-
-}
-function getSlide4(){
-
-    if( $("#pastilledeux").hasClass("active")){
-
-        //  previousDisable(fals);
-        nextImage();
-        previousDisable(false);
-        nextImage();
-    }
-    if( $("#pastilletrois").hasClass("active")){
-        nextImage();
-    }
-    if( $("#pastilleun").hasClass("active")){
-       previousImage();
-    }
-}
 
 $("a").click(function () {
-
-    if(!$("#pastilleun").hasClass('disabled') && $("#pastilledeux").hasClass('disabled') && $("#pastilletrois").hasClass('disabled') && $("#pastillequatre").hasClass('disabled')) {
+//(!$("#pastilleun").hasClass('disabled') && $("#pastilledeux").hasClass('disabled') && $("#pastilletrois").hasClass('disabled'))||(!$("#pastilleun").hasClass('disabled') && $("#pastilledeux").hasClass('disabled') && $("#pastillequatre").hasClass('disabled')) ||(!$("#pastilledeux").hasClass('disabled') && $("#pastilletrois").hasClass('disabled') && $("#pastillequatre").hasClass('disabled'))||(!$("#pastilleun").hasClass('disabled') && $("#pastilletrois").hasClass('disabled') && $("#pastillequatre").hasClass('disabled'))
+    if(!$("#pastille1").hasClass('disabled') && $("#pastille2").hasClass('disabled') && $("#pastille3").hasClass('disabled') && $("#pastille4").hasClass('disabled')) {
         previousDisable(true);
-
         $(".active").prop('class', 'fa fa-circle-o pastilles');
         $(this).addClass('active');
         changePastilleActive();
     }
 });
-
-
-/*
+/*x
     Récupération des données avec AJAX
  */
 
@@ -471,12 +402,95 @@ function getImages() {
         function (json) {
             $.each(json, function (key, val) {
                 i++;
-                $(div_rail).append("<div class='image' id='img" + i + "' style='background-image: url(" + val.url + ");' > " +
-                    "<div id='legend" + i + "' class='animetitle" + i + "'><h1 class='Title" + i + "'>" + val.title + "</h1><h3 class='Desc" + i + "'>" + val.desc + "</h3></div></div>");
+                nbimg++;
+                $(div_rail).append("<div class='image' id='img" + i + "' data-id='" + i + "' style='background-image: url(" + val.url + ");' > " +
+                    "<div id='legend" + i + "' class='animetitle" + i + "' data-id='" + i + "' ><h1 class='Title" + i + "'>" + val.title + "</h1><h3 class='Desc" + i + "'>" + val.desc + "</h3></div></div>");
+
+                $("#container").append("<a class='fa fa-circle-o pastilles' id='pastille" + i + "' onclick='getSlide(" + i + ")' aria-hidden='true'></a>");
 
             });
+           // console.log($("div.image").get());
+            $("#pastille1").addClass('active');
+            changePastilleActive();
+            $("#img1").attr('selected','selected');
         });
 }
+// Uniquement avec des next
+
+function getSlide(destination) { 
+
+    // alert($("a").data('id')); 
+    // alert(nbimg); 
+    // destination = $("a").data('id'); 
+     var source = $('.image:first').attr('data-id');
+    //alert(destination);
+    //alert(source); 
+   // alert(destination - source);
+     if(destination - source > 0) 
+    { 
+        var count = destination - source; 
+        while(count>0) 
+        { 
+         nextImage(); 
+        previousDisable(false);  
+        count--; 
+        } 
+    } 
+    else if(destination - source < 0) 
+    { 
+       var countneg = Math.abs(destination - source);
+      // alert(countneg);
+     if (countneg==1){
+            countneg+=2;
+        }
+      else if ( countneg>2 && countneg<4 ){
+           countneg+=-2;
+       }
+       //alert(countneg);
+       // alert(countneg);
+        while(countneg>0 ) 
+        { 
+            nextImage(); 
+            previousDisable(false); 
+            countneg--;
+        }
+    } 
+}
+     
+    //Bug d'affichage avec le previous. 
+/*
+function getSlide(destination)
+{
+    //alert(destination);
+    // alert($("a").data('id'));
+
+    //destination = $("a").data('id');
+    var source = $('.image:first').attr('data-id');//$("#img1").attr('data-id'); //$('.imageImport:first')
+    //alert(source);
+    if(destination - source > 0)
+    {
+        var count = destination - source;
+        //var CurrentSlide = count;
+        while(count>0)
+        {
+            nextImage();
+            previousDisable(false);
+            count--;
+        }
+    }
+    else if(destination - source < 0)
+    {
+        var count = destination - source;
+        while(count<0)
+        {
+            previousImage();
+            previousDisable(false);
+           // alert("A");
+            count++;
+
+        }
+    }
+}*/
 
 
 $(document).ready(function () {
@@ -484,13 +498,10 @@ $(document).ready(function () {
     // Au chargement initial
     getImages();
     img_width = $(window).width();
-    $("#pastilleun").addClass('active');
-    changePastilleActive();
-
   //  $("#legend").animate({"margin-left": "-"+ img_width/10000 +"px"}, timeTransition);
-
     console.log("Largeur de la fenetre : " + img_width);
     console.log("Page chargée");
+
 
 });
 
@@ -503,3 +514,5 @@ $(window).resize(function () {
     console.log("Largeur de la fenetre : " + img_width);
 
 });
+
+
