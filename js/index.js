@@ -9,7 +9,7 @@ var timerSlide;
 var div_rail = $("#rail");
 var img_width;
 var cpt = 0;
-var nbimg = 0;
+
 
 /* Mode pause au hover (+ opacity 0.7 sur l'image pour indiquer le mode pause a l'user)
 du slideshow s'il etait en play. La lecture reprend en sortnt du hover */
@@ -504,7 +504,6 @@ function getImages() {
 		function (json) {
 			$.each(json, function (key, val) {
 				i++;
-				nbimg++;
 				$(div_rail).append("<div class='image' id='img" + i + "' data-id='" + i + "' style='background-image: url(" + val.url + ");' > " +
 					"<div id='legend" + i + "' class='animetitle" + i + "' data-id='" + i + "' ><h1 class='Title" + i + "'>" + val.title + "</h1><h3 class='Desc" + i + "'>" + val.desc + "</h3></div></div>");
 

@@ -27,7 +27,7 @@ div#legend1,#legend2,#legend3,#legend4 {
     height: auto;
     text-align: center;
     margin-left: 65%;
-    margin-top: 75vh;
+    margin-top: 86vh;
     -webkit-animation:bounce-in 1s ease 0s 1 normal;
     -moz-animation:bounce-in 1s ease 0s 1 normal;
     -ms-animation:bounce-in 1s ease 0s 1 normal;
@@ -154,14 +154,14 @@ a.active {
         height: auto;
         text-align: center;
         margin-left: 60%;
-        margin-top: 84vh;
+        margin-top: 82vh;
     }
     h1 {
-        background-color: #fcf8e3;
+        background-color: #00695C;
         padding: 1px;
     }
     h3 {
-        background-color: #fcf8e3;
+        background-color: #E0F2F1;
         padding: 1px;
         opacity: 0.8;
     }
@@ -176,17 +176,17 @@ a.active {
         height: auto;
         text-align: center;
         margin-left: 48%;
-        margin-top: 90vh;
+        margin-top: 75vh;
     }
 
     h1 {
         font-size: 1em;
-        background-color: #fcf8e3;
+        background-color: #00695C;
         padding: 2px;
     }
     h3 {
         font-size: 1em;
-        background-color: #fcf8e3;
+        background-color: #E0F2F1;
         padding: 1px;
         opacity: 0.8;
     }
