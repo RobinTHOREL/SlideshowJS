@@ -21,7 +21,7 @@ body {
     /* border:2px solid red; */
 }
 
-div#legend1,#legend2,#legend3,#legend4 {
+div#legend1,#legend2,#legend3,#legend4,#legend5,#legend6,#legend7,#legend8 {
     opacity: 0.6;
     width: 27%;
     height: auto;
@@ -103,6 +103,27 @@ div .image {
     left: 56vw;
     position: fixed;
 }
+#pastille5{
+    bottom: 5vh;
+    left: 61vw;
+    position: fixed;
+
+}
+#pastille6{
+    bottom: 5vh;
+    left: 66vw;
+    position: fixed;
+}
+#pastille7{
+    bottom: 5vh;
+    left: 71vw;
+    position: fixed;
+}
+#pastille8{
+    bottom: 5vh;
+    left: 76vw;
+    position: fixed;
+}
 
 a.pastilles {
     font-size: 2em;
@@ -147,7 +168,7 @@ a.active {
 @media screen and (min-width: 800px) and (max-width: 1200px) {
 
 
-    div#legend1,#legend2,#legend3,#legend4 {
+    div#legend1,#legend2,#legend3,#legend4,#legend5,#legend6,#legend7,#legend8 {
         background-color: dimgrey;
         opacity: 0.6;
         width: 40%;
@@ -169,14 +190,14 @@ a.active {
 @media screen and (min-width: 200px) and (max-width: 800px) {
 
 
-    div#legend1,#legend2,#legend3,#legend4 {
+    div#legend1,#legend2,#legend3,#legend4,#legend5,#legend6,#legend7,#legend8 {
         background-color: dimgrey;
         opacity: 0.6;
         width: 52%;
         height: auto;
         text-align: center;
         margin-left: 48%;
-        margin-top: 75vh;
+        margin-top: 70vh;
     }
 
     h1 {
